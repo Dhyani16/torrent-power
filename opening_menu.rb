@@ -13,6 +13,7 @@ def get_choice(input)
         if choice==1
             include RGP
             puts(RGP.fixed_charges())
+
         else
             include BPL
             puts(BPL.fixed_charges)
@@ -98,7 +99,18 @@ def get_choice(input)
         puts(HTMDFour.final_charge)
     else puts"invalid choice select the valid one"
     end 
+        
+        
 end
 
 get_choice(main_choice)
-
+puts ("Do you want to choose any other option? 1:yes 2:no")
+option=gets.chomp.to_i
+if option==1
+    puts("Please select your choice")
+    main_choice=gets.chomp().to_s
+    get_choice(main_choice)
+else
+    puts("Have a good day")
+end
+    
