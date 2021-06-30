@@ -25,7 +25,16 @@ module GLP
         elsif fixed_choice==3
             $fixedCharge=70
         else 
-            "Invalid input"
+            puts("Invalid input")
+            puts("Do you want to enter again? 1:yes 2:no")
+            choice=gets.chomp.to_i
+            if choice==1
+                fixed_charges()
+            else
+                puts("goodbye")
+            end
+
+
         end
     end
 
@@ -38,5 +47,5 @@ module GLP
         
 end
 
-#include GLP
-#puts(GLP.final_charge())
+# include GLP
+# puts(GLP.final_charge())

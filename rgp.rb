@@ -35,7 +35,14 @@
             $finalCharge=65+$energyCharge
             return $finalCharge
           else
-            return "input is not valid"
+            puts("Invalid input")
+            puts("Do you want to enter again? 1:yes 2:no")
+            choice=gets.chomp.to_i
+            if choice==1
+                fixed_charges()
+            else
+                puts("goodbye")
+            end
           end
       end
 

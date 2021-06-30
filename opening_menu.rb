@@ -36,7 +36,7 @@ def get_choice(input)
         puts("You selected 4")
         require("./ltp.rb")
         include LTP
-        puts (LTP.minimumcharg())
+        puts (LTP.minimumcharge())
         
     when "5"
         puts("You selected 5")

@@ -1,6 +1,6 @@
 module EV
   $energyCharges = 0 
-  $demandCharg = 0 
+  $demandCharge = 0 
   
 
    def energy_charges
@@ -22,11 +22,18 @@ module EV
       case billingdemandoption
            
       when "1"
-         $demandCharg = $energyCharge + 25
+         $demandCharge = $energyCharge + 25
       when "2"
-         $demandCharg = $energyCharge + 50
+         $demandCharge = $energyCharge + 50
       else 
-         puts "invalid billing demand option"        
+         puts("Invalid input")
+         puts("Do you want to enter again? 1:yes 2:no")
+         choice=gets.chomp.to_i
+         if choice==1
+             demand_charges()
+         else
+             puts("goodbye")
+         end      
       end
   end 
 end   

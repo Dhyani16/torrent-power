@@ -49,6 +49,15 @@ module HTMDTwo
           $powerFactorCharge=(powerFactor*0.27)/100
         when "3"
           $powerFactorCharge=(powerFactor*3)/100
+        else
+          puts("Invalid input")
+          puts("Do you want to enter again? 1:yes 2:no")
+          choice=gets.chomp.to_i
+          if choice==1
+              power_charges()
+          else
+              puts("goodbye")
+          end
         end
      end
 
