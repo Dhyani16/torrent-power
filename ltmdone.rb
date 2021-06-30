@@ -1,9 +1,9 @@
 module LTMDOne 
-  $energyCharge=0
-  $fixedCharge=0
-  $powerFactorCharge=0
-  $finalCharge=0
-  $billing_demand=0
+  @energyCharge=0
+  @fixedCharge=0
+  @powerFactorCharge=0
+  @finalCharge=0
+  @billing_demand=0
 
   def energy_charges
     puts("LTMD 1")
@@ -24,26 +24,26 @@ module LTMDOne
       Maximum Demand in a month means the highest value of average kW \n
       used/consumed by the consumer during any time block of 30 minutes.")
     puts ("\nPlease enter your billing demand")
-    $billing_demand=gets.chomp.to_i
-    if $billing_demand<=50
-      $energyCharge=(($billing_demand*465).to_f)/100
+    @billing_demand=gets.chomp.to_i
+    if @billing_demand<=50
+      @energyCharge=((@billing_demand*465).to_f)/100
     else
-      $energyCharge= (($billing_demand*480).to_f)/100
+      @energyCharge= ((@billing_demand*480).to_f)/100
     end
   end
 
     def fixed_charges
-      if $billing_demand<=50
-        $fixedCharge=$billing_demand*150
-      elsif $billing_demand <=80
-        partOne=($billing_demand-50)*185
+      if @billing_demand<=50
+        @fixedCharge=@billing_demand*150
+      elsif @billing_demand <=80
+        partOne=(@billing_demand-50)*185
         partTwo=50*150
-        $fixedCharge=partOne+partTwo
+        @fixedCharge=partOne+partTwo
       else
-        partOne=($billing_demand-80)*245
+        partOne=(@billing_demand-80)*245
         partTwo=30*185
         partThree= 50*150
-        $fixedcharge= partOne+partTwo+partThree
+        @fixedcharge= partOne+partTwo+partThree
       end
 
     end
@@ -63,11 +63,11 @@ module LTMDOne
   
         case powerChargesOption
         when "1"
-          $powerFactorCharge=(powerFactor*0.15)/100
+          @powerFactorCharge=(powerFactor*0.15)/100
         when "2"
-          $powerFactorCharge=(powerFactor*0.27)/100
+          @powerFactorCharge=(powerFactor*0.27)/100
         when "3"
-          $powerFactorCharge=(powerFactor*3)/100
+          @powerFactorCharge=(powerFactor*3)/100
         else             
           puts("Invalid input")
           puts("Do you want to enter again? 1:yes 2:no")
@@ -84,8 +84,8 @@ module LTMDOne
       energy_charges()
       fixed_charges()
       power_charges()
-      $finalCharge=$energyCharge+$fixedCharge+$powerFactorCharge
-      return $finalCharge
+      @finalCharge=@energyCharge+@fixedCharge+@powerFactorCharge
+      return @finalCharge
     end
 end
 

@@ -1,12 +1,12 @@
 module NonRGP
-  $energyCharge=0
-  $fixedCharge=0
+  @energyCharge=0
+  @fixedCharge=0
    
   def energy_charges
     puts("Non RGP")
       puts("Please enter your energy usage")
       slab=gets.chomp().to_f
-      $energyCharge=(slab*460)/100
+      @energyCharge=(slab*460)/100
   end 
 
   def fixed_charges
@@ -15,13 +15,13 @@ module NonRGP
      
       fixed_choice=gets.chomp().to_f
       if fixed_choice <=5
-          $fixedCharge =  $energyCharge + 70
-          return $fixedCharge
+          @fixedCharge =  @energyCharge + 70
+          return @fixedCharge
   
   elsif
        fixed_choice >5 && fixed_choice <=15
-       $fixedCharge = $energyCharge + 90
-       return $fixedCharge
+       @fixedCharge = @energyCharge + 90
+       return @fixedCharge
   
   else
     puts("Invalid input!")

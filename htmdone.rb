@@ -1,10 +1,10 @@
 module HTMDOne
-  $energyCharge=0
-  $fixedCharge=0
-  $powerFactorCharge=0
-  $touCharge=0
-  $finalCharge=0
-  $billing_demand=0
+  @energyCharge=0
+  @fixedCharge=0
+  @powerFactorCharge=0
+  @touCharge=0
+  @finalCharge=0
+  @billing_demand=0
 
   def energy_charges
     puts("HTMD 1")
@@ -27,20 +27,20 @@ module HTMDOne
       average kW used/consumed by the consumer during any time block of 30 minutes.")
 
       puts("please enter the billing demand")
-      $billing_demand=gets.chomp().to_i
+      @billing_demand=gets.chomp().to_i
 
-      if $billing_demand<=400
-        $energyCharge=($billing_demand*455)/100
+      if @billing_demand<=400
+        @energyCharge=(@billing_demand*455)/100
       else
-        $energyCharge=(($billing_demand-400)*445 + (400)*455)/100
+        @energyCharge=((@billing_demand-400)*445 + (400)*455)/100
       end
   end
 
   def fixed_charges
-    if $billing_demand<=1000
-      $fixedCharge = $billing_demand*260
-    elsif $billing_demand>1000
-      $fixedCharge=$billing_demand*335
+    if @billing_demand<=1000
+      @fixedCharge = @billing_demand*260
+    elsif @billing_demand>1000
+      @fixedCharge=@billing_demand*335
     end
   end
 
@@ -59,11 +59,11 @@ module HTMDOne
 
       case powerChargesOption
       when "1"
-        $powerFactorCharge=(powerFactor*0.15)/100
+        @powerFactorCharge=(powerFactor*0.15)/100
       when "2"
-        $powerFactorCharge=(powerFactor*0.27)/100
+        @powerFactorCharge=(powerFactor*0.27)/100
       when "3"
-        $powerFactorCharge=(powerFactor*3)/100
+        @powerFactorCharge=(powerFactor*3)/100
       else
         puts("Invalid input")
         puts("Do you want to enter again? 1:yes 2:no")
@@ -77,10 +77,10 @@ module HTMDOne
    end
   
   def tou_charges
-    if $billing_demand<=300
-      $touCharge=(80*$billing_demand)/100
+    if @billing_demand<=300
+      @touCharge=(80*@billing_demand)/100
     else
-      $touCharge=$billing_demand
+      @touCharge=@billing_demand
     end
   end
 
@@ -90,8 +90,8 @@ module HTMDOne
     power_charges()
     tou_charges()
 
-    $finalCharge= $energyCharge + $fixedCharge + $powerFactorCharge + $touCharge + 0.3
-    return $finalCharge
+    @finalCharge= @energyCharge + @fixedCharge + @powerFactorCharge + @touCharge + 0.3
+    return @finalCharge
   end
 
 end

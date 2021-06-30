@@ -1,4 +1,18 @@
 puts("Hello, Welcome")
+puts(" 1 : RGP (RESIDENTIAL PURPOSE UP TO & INCLUDING 15KW)\n
+2 : GLP : FOR HOSPITAL,SCHOOL & RELIGIOUS PURPOSE\n
+3 : Non-RGP : COMMERCIAL AND INDUSTRIAL PURPOSE(UP TO & INCLUDING 15KW)\n
+4 : LTP(AG) : FOR AGRICULTURE PURPOSE\n
+5 : LTMD 1   : FOR AGRICULTURE PURPOSE(ABOVE 15KW)\n
+6 : LTMD 2   : FOR COMMERCIAL PURPOSE(ABOVE 15KW)\n
+7 : sl       :  FOR STREET LIGHT\n
+8 : LEV:LT  - ELECTRIC VEHICLE CHARGING STATSIONS\n
+9 : TMP\n
+10 : HTMD-1\n
+11 : HTMD-2\n
+12 : HTMD-3\n
+13 :EV-HT\n
+14 : HTMD")
 puts("Please select your choice")
 main_choice=gets.chomp().to_s
 def get_choice(input)
@@ -30,7 +44,7 @@ def get_choice(input)
         puts("You selected 3")
         require("./nonrgp.rb")
         include NonRGP
-        puts(Non_RGP.fixed_charges())
+        puts(NonRGP.fixed_charges())
 
     when "4"
         puts("You selected 4")

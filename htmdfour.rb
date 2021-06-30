@@ -1,7 +1,7 @@
 module HTMDFour
-  $energyCharge=0
-  $fixedCharge=0
-  $powerFactorCharge=0
+  @energyCharge=0
+  @fixedCharge=0
+  @powerFactorCharge=0
   
   def energy_charges
     puts("HTMD metro traction")
@@ -19,15 +19,15 @@ module HTMDFour
           Maximum Demand in a month means the highest value of average kW used/consumed by the consumer during any time block of 30 minutes.")
 
           puts("Enter Energy Charges")
-          $energyCharge = gets.chomp.to_i
-          $energyCharge=(($energyCharge*355).to_f)/100
-          puts $energyCharge
+          @energyCharge = gets.chomp.to_i
+          @energyCharge=((@energyCharge*355).to_f)/100
+          puts @energyCharge
   end
 
   def fixed_charges
     puts("Please enter your billing demand")
     billing_demand=gets.chomp.to_i
-    $fixedCharge=(billing_demand*25)/100
+    @fixedCharge=(billing_demand*25)/100
   end
 
   def power_charges
@@ -45,11 +45,11 @@ module HTMDFour
   
         case powerChargesOption
         when "1"
-          $powerFactorCharge=(powerFactor*0.15)/100
+          @powerFactorCharge=(powerFactor*0.15)/100
         when "2"
-          $powerFactorCharge=(powerFactor*0.27)/100
+          @powerFactorCharge=(powerFactor*0.27)/100
         when "3"
-          $powerFactorCharge=(powerFactor*3)/100
+          @powerFactorCharge=(powerFactor*3)/100
         else
           puts("Invalid input")
           puts("Do you want to enter again? 1:yes 2:no")
@@ -67,8 +67,8 @@ def final_charge
   fixed_charges()
   power_charges()
 
-  $finalCharge= $energyCharge + $fixedCharge + $powerFactorCharge + 0.6+ 0.3
-  return $finalCharge
+  @finalCharge= @energyCharge + @fixedCharge + @powerFactorCharge + 0.6+ 0.3
+  return @finalCharge
 end
 
      
